@@ -5,7 +5,7 @@
  * Name: FIXME
  * Created: FIXME
  */
-package username;
+package woodm;
 
 import java.util.Scanner;
 

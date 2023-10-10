@@ -5,7 +5,7 @@
  * Name: FIXME
  * Created: FIXME
  */
-package username;
+package woodm;
 
 public class Mugwump {
     // add methods here
