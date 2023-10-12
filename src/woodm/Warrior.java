@@ -72,11 +72,11 @@ public class Warrior {
     }
 
     private int setInitialHitPoints() {
-        int tempSum = 0;
+        int initialHitPoints = 0;
         for(int i = 0; i < 4; i++) {
             d10.roll();
-            tempSum += d10.getCurrentValue();
+            initialHitPoints += d10.getCurrentValue();
         }
-        return tempSum;
+        return initialHitPoints;
     }
 }
