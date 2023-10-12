@@ -1,9 +1,9 @@
 /*
- * Course: CS1011 - FIXME
- * Fall 2022
+ * Course: CS1101 - 111
+ * Fall 2023
  * Lab 7 - Battle Simulator 3000
- * Name: FIXME
- * Created: FIXME
+ * Name: Michael Wood
+ * Created: 10/12/2023
  */
 package woodm;
 
