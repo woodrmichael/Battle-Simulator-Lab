@@ -7,6 +7,9 @@
  */
 package woodm;
 
+/**
+ * A Computer controlled Evil Mugwump who must take down the Valiant Warrior
+ */
 public class Mugwump {
     private int hitPoints;
     private int maxHitPoints;
@@ -15,6 +18,9 @@ public class Mugwump {
     private Die d10;
     private Die d6;
 
+    /**
+     * Creates an instance of a Mugwump with an initial amount of hitpoints
+     */
     public Mugwump() {
         final int d100Sides = 100;
         final int d20Sides = 20;
@@ -32,6 +38,10 @@ public class Mugwump {
         return hitPoints;
     }
 
+    /**
+     * Removes health from the Mugwumps hitpoints after it takes damage
+     * @param damage the total damage the Mugwump takes during the round
+     */
     public void takeDamage(int damage) {
         hitPoints -= damage;
     }

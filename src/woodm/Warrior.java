@@ -18,7 +18,7 @@ public class Warrior {
     private Die d4;
 
     /**
-     * Creates an instance of a warrior with an initial amount of hitpoints
+     * Creates an instance of a Warrior with an initial amount of hitpoints
      */
     public Warrior() {
         final int d20Sides = 20;
