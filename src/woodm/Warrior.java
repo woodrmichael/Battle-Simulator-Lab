@@ -41,7 +41,9 @@ public class Warrior {
      * @param damage the total damage the warrior takes during the round
      */
     public void takeDamage(int damage) {
-        hitPoints -= damage;
+        if(damage >= 0) {
+            hitPoints -= damage;
+        }
     }
 
     /**

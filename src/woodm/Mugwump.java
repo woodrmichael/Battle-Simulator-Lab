@@ -61,7 +61,12 @@ public class Mugwump {
             }
         } else {
             d6.roll();
-            damage -= d6.getCurrentValue();
+            if(d6.getCurrentValue() + hitPoints > maxHitPoints) {
+                damage -= maxHitPoints - hitPoints;
+            } else {
+                damage -= d6.getCurrentValue();
+            }
+            hitPoints -= damage;
         }
         return damage;
     }
