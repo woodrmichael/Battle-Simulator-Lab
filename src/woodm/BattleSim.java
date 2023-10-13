@@ -47,6 +47,7 @@ public class BattleSim {
             play = playAgain(in);
         } while(play);
         // Thank the user for playing your game
+        System.out.println("Thank you for playing Battle Simulator 3000!");
 
     }
 
@@ -54,7 +55,7 @@ public class BattleSim {
      * This method displays the introduction to the game and gives a description of the rules.
      */
     private static void intro() {
-        System.out.println("Welcome to Battle Simulator 3000!" +
+        System.out.println("\nWelcome to Battle Simulator 3000!" +
                 " The greatest Battle Simulator since Battle Simulator 2000!\n" +
                 "You are a Valiant Warrior defending your humble village from an evil Mugwump!" +
                 " Fight bravely, \n" +
@@ -143,12 +144,12 @@ public class BattleSim {
      * @return 1 for sword, 2 for shield
      */
     private static int attackChoice(Scanner in) {
-        System.out.print("How would you like to attack?\n" +
+        System.out.println("How would you like to attack?\n" +
                 "1. Your Trusty Sword\n" +
                 "2. Your Shield of Light");
         String choice;
         do {
-            System.out.print("\nEnter choice: ");
+            System.out.print("Enter choice: ");
             choice = in.nextLine();
         } while(choice.length() > 1 || !choice.equals("1") && !choice.equals("2"));
         return Integer.parseInt(choice);
@@ -182,11 +183,11 @@ public class BattleSim {
      */
     private static void victory(String victor) {
         if(victor.equals("warrior")) {
-            System.out.println("The Warrior triumphs with his victory over the Evil Mugwump.\n" +
+            System.out.println("\nThe Warrior triumphs with his victory over the Evil Mugwump!\n" +
                     "The citizens cheer and invite you back to town for a feast as thanks " +
                     "for saving their lives (again)!\n");
         } else {
-            System.out.println("The Mugwump mocks the Warrior for his loss against the " +
+            System.out.println("\nThe Mugwump mocks the Warrior for his loss against the " +
                     "almighty evil Mugwump!\nHe eats every citizen in the town for his dinner " +
                     "after such an easy victory!\n");
         }
