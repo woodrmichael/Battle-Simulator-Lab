@@ -80,7 +80,41 @@ public class BattleSim {
      */
     private static String battle(Warrior warrior, Mugwump mugwump, Scanner in) {
         // determine who attacks first (Roll! For! Initiative!) and store the result
+        int firstAttack = initiative();
 
+        int attackChoice;
+        int damage;
+        if(firstAttack == 1) {
+            attackChoice = attackChoice(in);
+            damage = warrior.attack(attackChoice);
+            mugwump.takeDamage(damage);
+            if(mugwump.getHitPoints() > 0) {
+                damage = mugwump.attack();
+                warrior.takeDamage(damage);
+                if(warrior.getHitPoints() > 0) {
+                    return "none";
+                } else {
+                    return "mugwump";
+                }
+            } else {
+                return "warrior";
+            }
+        } else {
+            damage = mugwump.attack();
+            warrior.takeDamage(damage);
+            if(warrior.getHitPoints() > 0) {
+                attackChoice = attackChoice(in);
+                damage = warrior.attack(attackChoice);
+                mugwump.takeDamage(damage);
+                if(mugwump.getHitPoints() > 0) {
+                    return "none";
+                } else {
+                    return "warrior";
+                }
+            } else {
+                return "mugwump";
+            }
+        }
         // attack code
         // If the Warrior attacks first
 
@@ -95,7 +129,6 @@ public class BattleSim {
         // see above
 
         // If neither combatant is defeated, the battle rages on!
-        return null;
     }
 
     /**
@@ -113,8 +146,15 @@ public class BattleSim {
      * @return 1 for sword, 2 for shield
      */
     private static int attackChoice(Scanner in) {
-        // TODO
-        return -1;
+        System.out.print("How would you like to attack?\n" +
+                "1. Your Trusty Sword\n" +
+                "2. Your Shield of Light");
+        String choice;
+        do {
+            System.out.print("\nEnter choice: ");
+            choice = in.nextLine();
+        } while(choice.length() > 1 || !Character.isDigit(choice.charAt(0)));
+        return Integer.parseInt(choice);
     }
 
     /**
@@ -159,8 +199,8 @@ public class BattleSim {
      * @return true if yes, false otherwise
      */
     private static boolean playAgain(Scanner in) {
-        System.out.print("Would you like to play again?: ");
-
-        return false;
+        System.out.print("Would you like to play again? (yes/no): ");
+        String playAgain = in.nextLine();
+        return playAgain.equalsIgnoreCase("yes") || playAgain.equalsIgnoreCase("y");
     }
 }
