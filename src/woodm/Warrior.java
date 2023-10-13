@@ -61,6 +61,10 @@ public class Warrior {
                     d8.roll();
                     damage += d8.getCurrentValue();
                 }
+                System.out.println("You hit the Mugwump with your Trusty Sword for " + damage +
+                        " points of damage!");
+            } else {
+                System.out.println("You swing your sword and miss the foul creature!");
             }
         } else {
             d20.roll();
@@ -68,6 +72,10 @@ public class Warrior {
             if(d20.getCurrentValue() >= shieldOfLightChance) {
                 d4.roll();
                 damage = d4.getCurrentValue();
+                System.out.println("You hit the Mugwump with your Shield of Light for " + damage +
+                        " points of damage!");
+            } else {
+                System.out.println("You swing your shield and miss the foul creature!");
             }
         }
         return damage;

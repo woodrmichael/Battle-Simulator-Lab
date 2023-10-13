@@ -31,6 +31,7 @@ public class Die {
         } else {
             this.numSides = numSides;
         }
+        generator = new Random();
     }
 
     public int getCurrentValue() {

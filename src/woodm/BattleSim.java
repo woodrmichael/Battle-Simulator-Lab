@@ -26,12 +26,10 @@ public class BattleSim {
         // sentinel value for the game loop
         boolean play = true;
         // String used to determine the winner of the epic battle
-        String victor = "";
+        String victor = "none";
         // game loop
         do {
             intro();
-
-
             // initialize game
             // Initialize the Warrior and Mugwump classes, set the current victor to "none"
             Warrior warrior = new Warrior();
@@ -44,10 +42,9 @@ public class BattleSim {
                 victor = battle(warrior, mugwump, in);
             }
             // declare the winner
-
-
+            victory(victor);
             // ask to play again
-
+            play = playAgain(in);
         } while(play);
         // Thank the user for playing your game
 
@@ -69,7 +66,7 @@ public class BattleSim {
                 " which is not as strong as your sword, but is easier to deal \n" +
                 "damage with.\n" +
                 "\n" +
-                "Let the epic battle begin!\n");
+                "Let the epic battle begin!");
     }
 
     /**
@@ -153,7 +150,7 @@ public class BattleSim {
         do {
             System.out.print("\nEnter choice: ");
             choice = in.nextLine();
-        } while(choice.length() > 1 || !Character.isDigit(choice.charAt(0)));
+        } while(choice.length() > 1 || !choice.equals("1") && !choice.equals("2"));
         return Integer.parseInt(choice);
     }
 
@@ -172,8 +169,10 @@ public class BattleSim {
             warriorRoll = INITATIVE_DIE.getCurrentValue();
         } while(mugwumpRoll == warriorRoll);
         if(mugwumpRoll > warriorRoll) {
+            System.out.println("The Mugwump attacks first!");
             return 2;
         }
+        System.out.println("The Warrior attacks first!");
         return 1;
     }
 
@@ -182,13 +181,13 @@ public class BattleSim {
      * @param victor the name of the victor of the epic battle
      */
     private static void victory(String victor) {
-        if(victor.equals("Warrior")) {
-            System.out.println("The " + victor + " triumphs with his victory over the Evil Mugwump.\n" +
+        if(victor.equals("warrior")) {
+            System.out.println("The Warrior triumphs with his victory over the Evil Mugwump.\n" +
                     "The citizens cheer and invite you back to town for a feast as thanks " +
                     "for saving their lives (again)!\n");
         } else {
-            System.out.println("The " + victor + " mocks the Warrior for his loss against the " +
-                    "almighty evil Mugwump! He eats every citizen in the town for his dinner " +
+            System.out.println("The Mugwump mocks the Warrior for his loss against the " +
+                    "almighty evil Mugwump!\nHe eats every citizen in the town for his dinner " +
                     "after such an easy victory!\n");
         }
     }

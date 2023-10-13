@@ -61,6 +61,11 @@ public class Mugwump {
                     d6.roll();
                     damage += d6.getCurrentValue();
                 }
+                System.out.println("The Mugwump uses its Razor Sharp Claws and hits you for " +
+                        damage + " points of damage!");
+            } else {
+                System.out.println("The Mugwump snaps at you with its Razor Sharp Claws and " +
+                        "misses!");
             }
         } else if(ai() == 2) {
             if(d20.getCurrentValue() >= fangsOfDeathChance) {
@@ -68,6 +73,11 @@ public class Mugwump {
                     d6.roll();
                     damage += d6.getCurrentValue();
                 }
+                System.out.println("The Mugwump uses its Fangs of Death and hits you for " +
+                        damage + " points of damage!");
+            } else {
+                System.out.println("The Mugwump snaps at you with its Fangs of Death and " +
+                        "misses!");
             }
         } else {
             d6.roll();
@@ -77,6 +87,8 @@ public class Mugwump {
                 damage -= d6.getCurrentValue();
             }
             hitPoints -= damage;
+            System.out.println("The Mugwump licks its wounds and heals itself for " +
+                    -damage + " hitpoints!");
         }
         return damage;
     }
