@@ -1,9 +1,9 @@
 /*
- * Course: CS1011 - FIXME
+ * Course: CS1101 - 111
  * Fall 2022
  * Lab 7 - Battle Simulator 3000
- * Name: FIXME
- * Created: FIXME
+ * Name: Michael Wood
+ * Created: 10/12/2023
  */
 package woodm;
 
@@ -16,6 +16,7 @@ public class BattleSim {
     /**
      * Ten-sided die to be used for checking initiative by all classes
      */
+    public static final Die INITATIVE_DIE = new Die(10);
 
 
     public static void main(String[] args) {
@@ -28,15 +29,14 @@ public class BattleSim {
         String victor = "";
         // game loop
         do {
-            // print the introduction and rules
+            intro();
 
 
             // initialize game
             // Initialize the Warrior and Mugwump classes, set the current victor to "none"
-            Warrior warrior = null;
-            Mugwump mugwump = null;
-            Scanner in = null;
-
+            Warrior warrior = new Warrior();
+            Mugwump mugwump = new Mugwump();
+            Scanner in = new Scanner(System.in);
 
             // while neither combatant has lost all of their hit points, report status and battle!
             while (victor.equalsIgnoreCase("none")) {
@@ -57,8 +57,19 @@ public class BattleSim {
      * This method displays the introduction to the game and gives a description of the rules.
      */
     private static void intro() {
-        // Write a suitable introduction to your game
-
+        System.out.println("Welcome to Battle Simulator 3000!" +
+                " The greatest Battle Simulator since Battle Simulator 2000!\n" +
+                "You are a Valiant Warrior defending your humble village from an evil Mugwump!" +
+                " Fight bravely, \n" +
+                "or the citizens of your town will be the Mugwump's tasty dinner!\n" +
+                "\n" +
+                "You have your Trusty Sword, which deals decent damage," +
+                " but can be tough to hit with sometimes. \n" +
+                "You also have your Shield of Light," +
+                " which is not as strong as your sword, but is easier to deal \n" +
+                "damage with.\n" +
+                "\n" +
+                "Let the epic battle begin!\n");
     }
 
     /**
@@ -93,7 +104,8 @@ public class BattleSim {
      * @param mugwump The Evil Mugwump!
      */
     private static void report(Warrior warrior, Mugwump mugwump) {
-        // TODO
+        System.out.println("\nWarrior HP: " + warrior.getHitPoints());
+        System.out.println("Mugwump HP: " + mugwump.getHitPoints() + "\n");
     }
 
     /**
@@ -111,10 +123,18 @@ public class BattleSim {
      * @return 1 if the warrior goes first, 2 if the mugwump goes first
      */
     private static int initiative() {
-        // roll for initiative for both combatants
-        // until one initiative is greater than the other
-
-        return -1;
+        int mugwumpRoll;
+        int warriorRoll;
+        do {
+            INITATIVE_DIE.roll();
+            mugwumpRoll = INITATIVE_DIE.getCurrentValue();
+            INITATIVE_DIE.roll();
+            warriorRoll = INITATIVE_DIE.getCurrentValue();
+        } while(mugwumpRoll == warriorRoll);
+        if(mugwumpRoll > warriorRoll) {
+            return 2;
+        }
+        return 1;
     }
 
     /**
@@ -122,7 +142,15 @@ public class BattleSim {
      * @param victor the name of the victor of the epic battle
      */
     private static void victory(String victor) {
-        // TODO
+        if(victor.equals("Warrior")) {
+            System.out.println("The " + victor + " triumphs with his victory over the Evil Mugwump.\n" +
+                    "The citizens cheer and invite you back to town for a feast as thanks " +
+                    "for saving their lives (again)!\n");
+        } else {
+            System.out.println("The " + victor + " mocks the Warrior for his loss against the " +
+                    "almighty evil Mugwump! He eats every citizen in the town for his dinner " +
+                    "after such an easy victory!\n");
+        }
     }
 
     /**
@@ -131,7 +159,8 @@ public class BattleSim {
      * @return true if yes, false otherwise
      */
     private static boolean playAgain(Scanner in) {
-        // TODO
+        System.out.print("Would you like to play again?: ");
+
         return false;
     }
 }

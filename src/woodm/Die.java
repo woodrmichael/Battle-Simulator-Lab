@@ -19,7 +19,7 @@ public class Die {
 
     /**
      * Creates a new instance of a Die with a number of sides between 2 and 100.
-     * If number of sides isn't between 2 and 100, will default to 6.
+     * If number of sides isn't between 2 and 100, will default to 6 sides.
      * @param numSides the number of sides of the Die object.
      */
     public Die(int numSides) {
