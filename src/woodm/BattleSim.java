@@ -18,13 +18,12 @@ public class BattleSim {
      */
     public static final Die INITATIVE_DIE = new Die(10);
 
-
     public static void main(String[] args) {
         // Local variables
         // Include any variable that will need to be accessed throughout the program here
 
         // sentinel value for the game loop
-        boolean play = true;
+        boolean play;
         // String used to determine the winner of the epic battle
         String victor = "none";
         // game loop
@@ -48,7 +47,6 @@ public class BattleSim {
         } while(play);
         // Thank the user for playing your game
         System.out.println("Thank you for playing Battle Simulator 3000!");
-
     }
 
     /**
