@@ -53,19 +53,17 @@ public class BattleSim {
      * This method displays the introduction to the game and gives a description of the rules.
      */
     private static void intro() {
-        System.out.println("\nWelcome to Battle Simulator 3000!" +
-                " The greatest Battle Simulator since Battle Simulator 2000!\n" +
-                "You are a Valiant Warrior defending your humble village from an evil Mugwump!" +
-                " Fight bravely, \n" +
-                "or the citizens of your town will be the Mugwump's tasty dinner!\n" +
-                "\n" +
-                "You have your Trusty Sword, which deals decent damage," +
-                " but can be tough to hit with sometimes. \n" +
-                "You also have your Shield of Light," +
-                " which is not as strong as your sword, but is easier to deal \n" +
-                "damage with.\n" +
-                "\n" +
-                "Let the epic battle begin!");
+        System.out.println("""
+
+                Welcome to Battle Simulator 3000! The greatest Battle Simulator since Battle Simulator 2000!
+                You are a Valiant Warrior defending your humble village from an evil Mugwump! Fight bravely,\s
+                or the citizens of your town will be the Mugwump's tasty dinner!
+
+                You have your Trusty Sword, which deals decent damage, but can be tough to hit with sometimes.\s
+                You also have your Shield of Light, which is not as strong as your sword, but is easier to deal\s
+                damage with.
+
+                Let the epic battle begin!""");
     }
 
     /**

@@ -12,10 +12,10 @@ package woodm;
  */
 public class Warrior {
     private int hitPoints;
-    private Die d20;
-    private Die d10;
-    private Die d8;
-    private Die d4;
+    private final Die d20;
+    private final Die d10;
+    private final Die d8;
+    private final Die d4;
 
     /**
      * Creates an instance of a Warrior with an initial amount of hitpoints

@@ -12,11 +12,11 @@ package woodm;
  */
 public class Mugwump {
     private int hitPoints;
-    private int maxHitPoints;
-    private Die d100;
-    private Die d20;
-    private Die d10;
-    private Die d6;
+    private final int maxHitPoints;
+    private final Die d100;
+    private final Die d20;
+    private final Die d10;
+    private final Die d6;
 
     /**
      * Creates an instance of a Mugwump with an initial amount of hitpoints

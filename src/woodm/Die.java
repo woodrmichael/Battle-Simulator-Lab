@@ -13,9 +13,9 @@ import java.util.Random;
  * A Die class that can have a number of sides between 2 and 100.
  */
 public class Die {
-    private int numSides;
+    private final int numSides;
     private int currentValue;
-    private Random generator;
+    private final Random generator;
 
     /**
      * Creates a new instance of a Die with a number of sides between 2 and 100.
